@@ -1,5 +1,6 @@
 from flask import Flask, render_template, redirect, url_for, request
 import requests
+from config import API_KEY
 
 app = Flask(__name__)
 
@@ -12,7 +13,7 @@ def index():
     return render_template('dashboard.html')
 
 def get_weather_data(city):
-    API_KEY = '6a21dee4758c3c251248d265cd8702d5'
+    
     URL = f'http://api.openweathermap.org/data/2.5/weather?q={city}&appid={API_KEY}'
     response = requests.get(URL)
     data = response.json()
