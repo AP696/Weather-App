@@ -8,11 +8,11 @@ def index():
     if request.method == 'POST':
         city = request.form['city']
         weather_data = get_weather_data(city)
-        return render_template('base.html', weather=weather_data)
-    return render_template('base.html')
+        return render_template('dashboard.html', weather=weather_data)
+    return render_template('dashboard.html')
 
 def get_weather_data(city):
-    API_KEY = '068b9448c8d37f37d18dd401e55f8aec'
+    API_KEY = '6a21dee4758c3c251248d265cd8702d5'
     URL = f'http://api.openweathermap.org/data/2.5/weather?q={city}&appid={API_KEY}'
     response = requests.get(URL)
     data = response.json()
