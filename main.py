@@ -13,8 +13,7 @@ def index():
     return render_template('dashboard.html')
 
 def get_weather_data(city):
-    
-    URL = f'http://api.openweathermap.org/data/2.5/weather?q={city}&appid={API_KEY}'
+    URL = f'http://api.openweathermap.org/data/2.5/weather?q={city}&appid={API_KEY}&units=metric'
     response = requests.get(URL)
     data = response.json()
     if data['cod'] == 200:

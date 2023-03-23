@@ -2,26 +2,30 @@
 {% block content %}
 
 <div class="container">
-    <h1 class="my-4 text-center">Weather-App</h1>
-    <form method="POST" action="/" class="row g-3">
-        <div class="col-auto">
-            <label for="city" class="visually-hidden">City:</label>
-            <input type="text" id="city" name="city" class="form-control" placeholder="Enter city name" required>
-        </div>
-        <div class="col-auto">
-            <button type="submit" class="btn btn-primary">Get Weather</button>
-        </div>
-    </form>
-    {% if weather %}
-    <div class="card mt-4">
-        <div class="card-body">
-            <h2 class="card-title">{{ weather.city }}</h2>
-            <img src="http://openweathermap.org/img/w/{{ weather.icon }}.png" alt="{{ weather.description }}" class="mx-auto d-block">
-            <p class="card-text">Temperature: {{ weather.temperature }}K</p>
-            <p class="card-text">Description: {{ weather.description }}</p>
+    <h1 class="my-4 text-center">Weather App</h1>
+    <div class="row">
+        <div class="col-md-6 offset-md-3">
+            <form method="POST" action="/" class="row mb-4">
+                <div class="col-auto">
+                    <label for="city" class="visually-hidden">City:</label>
+                    <input type="text" id="city" name="city" class="form-control" placeholder="Enter city name" required>
+                </div>
+                <div class="col-auto">
+                    <button type="submit" class="btn btn-primary">Get Weather</button>
+                </div>
+            </form>
+            {% if weather %}
+            <div class="card mt-4">
+                <div class="card-body">
+                    <h2 class="card-title">{{ weather.city }}</h2>
+                    <img src="http://openweathermap.org/img/w/{{ weather.icon }}.png" alt="{{ weather.description }}" class="mx-auto d-block">
+                    <p class="card-text">Temperature: {{ weather.temperature }} C</p>
+                    <p class="card-text">Description: {{ weather.description }}</p>
+                </div>
+            </div>
+        {% endif %}
         </div>
     </div>
-    {% endif %}
 </div>
 
 {% endblock %}
